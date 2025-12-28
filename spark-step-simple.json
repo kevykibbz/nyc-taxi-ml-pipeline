@@ -1,0 +1,14 @@
+[
+  {
+    "Name": "Simple-Spark-Test",
+    "ActionOnFailure": "CONTINUE",
+    "Jar": "command-runner.jar",
+    "Args": [
+      "spark-submit",
+      "--deploy-mode", "cluster",
+      "--driver-memory", "1g",
+      "--executor-memory", "1g",
+      "s3://nyc-taxi-batch-processing/scripts/spark_test_simple.py"
+    ]
+  }
+]

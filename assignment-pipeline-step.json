@@ -1,0 +1,16 @@
+[
+  {
+    "Name": "Assignment-Data-Pipeline",
+    "ActionOnFailure": "CONTINUE",
+    "Jar": "command-runner.jar",
+    "Args": [
+      "spark-submit",
+      "--deploy-mode", "cluster",
+      "--driver-memory", "2g",
+      "--executor-memory", "2g",
+      "--executor-cores", "2",
+      "--num-executors", "2",
+      "s3://nyc-taxi-batch-processing/scripts/ml_data_pipeline.py"
+    ]
+  }
+]

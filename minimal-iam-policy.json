@@ -1,0 +1,63 @@
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Sid": "AllowListAllBuckets",
+            "Effect": "Allow",
+            "Action": "s3:ListAllMyBuckets",
+            "Resource": "*"
+        },
+        {
+            "Sid": "AllowListBucket",
+            "Effect": "Allow",
+            "Action": "s3:ListBucket",
+            "Resource": "arn:aws:s3:::nyc-taxi-batch-processing"
+        },
+        {
+            "Sid": "AllowAllBucketActions",
+            "Effect": "Allow",
+            "Action": [
+                "s3:GetObject",
+                "s3:PutObject",
+                "s3:DeleteObject"
+            ],
+            "Resource": "arn:aws:s3:::nyc-taxi-batch-processing/*"
+        },
+        {
+            "Sid": "AllowBasicEMROperations",
+            "Effect": "Allow",
+            "Action": [
+                "elasticmapreduce:RunJobFlow",
+                "elasticmapreduce:DescribeCluster",
+                "elasticmapreduce:ListClusters",
+                "elasticmapreduce:ListSteps", 
+                "elasticmapreduce:AddJobFlowSteps",
+                "elasticmapreduce:TerminateJobFlows"
+            ],
+            "Resource": "*"
+        },
+        {
+            "Sid": "AllowBasicEC2ForEMR",
+            "Effect": "Allow",
+            "Action": [
+                "ec2:DescribeInstances",
+                "ec2:DescribeInstanceTypes",
+                "ec2:DescribeImages",
+                "ec2:DescribeSecurityGroups",
+                "ec2:DescribeSubnets",
+                "ec2:DescribeVpcs"
+            ],
+            "Resource": "*"
+        },
+        {
+            "Sid": "AllowIAMForEMRRoles",
+            "Effect": "Allow",
+            "Action": [
+                "iam:ListRoles",
+                "iam:GetRole",
+                "iam:PassRole"
+            ],
+            "Resource": "*"
+        }
+    ]
+}

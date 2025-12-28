@@ -51,9 +51,7 @@ credentials
 *.keystore
 
 # Data files
-*.csv
 *.parquet
-*.json
 data/
 datasets/
 output/

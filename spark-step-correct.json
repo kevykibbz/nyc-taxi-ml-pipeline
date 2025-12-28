@@ -1,0 +1,18 @@
+[
+  {
+    "Name": "NYC-Taxi-ML-Training-Correct",
+    "ActionOnFailure": "CONTINUE",
+    "Jar": "command-runner.jar",
+    "Args": [
+      "spark-submit",
+      "--deploy-mode", "cluster",
+      "--driver-memory", "2g",
+      "--executor-memory", "2g",
+      "--executor-cores", "2",
+      "--num-executors", "2",
+      "--conf", "spark.sql.adaptive.enabled=true",
+      "--conf", "spark.sql.adaptive.coalescePartitions.enabled=true",
+      "s3://nyc-taxi-batch-processing/scripts/ml_training_correct.py"
+    ]
+  }
+]
